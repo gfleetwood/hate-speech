@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Movie Classification</title>
+	<link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+  	<link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <div class="container">
+      <div class="header">
+       <nav>
+           <ul class="nav nav-pills pull-right">
+             <li role="presentation" class="active"><a href="/">Home</a>
+             <li role="presentation" class="active"><a href="/about">About</a>
+           </ul>
+        </nav>
+       <h3 class="text-muted">Hate Speech Classifier</h3>
+    </div>
+
+	<div>
+      <h4>Your Submission</h4>
+    </div>
+	<div>{{ content }}</div>
+	<br></br>
+	<div>
+      <h4>Prediction</h4>
+    </div>
+	<div>
+	The model says <strong>{{ prediction }}</strong> with {{ probability }}% confidence.
+	</div>
+	<br></br>
+	<div id='button'>
+	  <form action="/">
+	    <input type = submit value = 'Submit Another Tweet'>
+	  </form>
+	</div>
+  </body>
+</html>

@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Hate Speech Classifier</title>
+	<!--  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"> -->
+  <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <div class="container">
+      <div class="header">
+        <nav>
+            <ul class="nav nav-pills pull-right">
+              <li role="presentation" class="active"><a href="/">Home</a>
+              <li role="presentation" class="active"><a href="/about">About</a>
+            </ul>
+        </nav>
+        <h3 class="text-muted">Hate Speech Classifier</h3>
+    </div>
+
+    <div class="row marketing">
+      <h4>Introduction</h4>
+      <p>This model classifies tweets as either containing hate speech, not offensive, or offensive but not using hate speech.
+         Read the About page to learn more.
+      </p>
+    </div>
+    
+    <div>
+      <h4>Enter Your Tweet</h4>
+    </div>
+
+    {% from "_formhelpers.html" import render_field %}
+
+    <form method = post action="/results">
+      <dl>
+	     {{ render_field(form.tweet_classifier, cols='96', rows='2') }}
+      </dl>
+      <div>
+	     <input type=submit value='Classify' name='submit_btn'>
+      </div>
+    </form>
+
+  </body>
+</html>
