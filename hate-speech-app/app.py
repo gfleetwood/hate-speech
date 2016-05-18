@@ -16,7 +16,9 @@ CLF = pickle.load(open(
                 'pkl_objects',
                 'classifier.pkl'), 'rb'))
 
-LABEL_DICT = {0: 'The tweet contains hate speech', 1: 'The tweet is not offensive', 2: 'The tweet uses offensive language but not hate speech'}
+LABEL_DICT = {0: 'The tweet contains hate speech', 
+              1: 'The tweet is not offensive', 
+			  2: 'The tweet uses offensive language but not hate speech'}
 
 app = Flask(__name__)
 
@@ -34,10 +36,10 @@ def index():
 def results():
     form = ReviewForm(request.form)
     if request.method == 'POST' and form.validate():
-        review = request.form['tweet_classifier']
-        y, proba = classify_tweet(review)
+        tweet = request.form['tweet_classifier']
+        y, proba = classify_tweet(tweet)
         return render_template('results.html',
-                                content = review,
+                                content = tweet,
                                 prediction = y,
                                 probability = proba)
     return render_template('submission.html', form = form)
